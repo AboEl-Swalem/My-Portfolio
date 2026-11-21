@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const basePath = process.env.NODE_ENV === "production" ? "/gfbs3-portfolio-demo" : "";
+const basePath = process.env.NODE_ENV === "production" ? "/gitfolio" : "";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
             href="/" 
             className="text-lg font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 hover:to-cyan-400 transition-all duration-300"
           >
-            GITFOLIO
+            ABD AL-RAHMAN
           </Link>
           <div className="flex gap-8 text-xs font-bold tracking-widest uppercase text-cyan-700/80">
             <Link href="#work" className="hover:text-cyan-400 hover:drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-all">PROJECTS</Link>
@@ -35,17 +35,20 @@ export default function Home() {
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/20 text-cyan-400 text-xs font-bold tracking-widest uppercase animate-pulse">
               <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,1)]" />
-              READY TO LAUNCH
+             OPEN TO OPPORTUNITIES
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1] drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
-              BUILD YOUR <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 animate-gradient-x">DEVELOPER PORTFOLIO</span> <br />
-              IN MINUTES
-            </h1>
-          </div>
-          <p className="text-lg md:text-xl text-cyan-100/70 max-w-2xl leading-relaxed font-light border-l-2 border-fuchsia-500/50 pl-6">
-            A beginner-friendly portfolio template that showcases your projects beautifully. Fork it, customize it, deploy it—no design skills required.
-          </p>
+  HI, I&apos;M ABD AL-RAHMAN
+  <br />
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 animate-gradient-x">
+    SOFTWARE DEVELOPER
+  </span>
+</h1>
+</div>
+
+<p className="text-lg md:text-xl text-cyan-100/70 max-w-2xl leading-relaxed font-light border-l-2 border-fuchsia-500/50 pl-6">
+  Building web applications, solving real-world problems with code, and continuously learning new technologies.
+</p>
           <div className="pt-8 flex gap-6">
             <Link 
               href="#work" 
@@ -70,38 +73,31 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Project 1 */}
-            <ProjectCard 
-              title="PROJECT_ONE"
-              description="Your first amazing project goes here. Describe what problem it solves and the tech you used to build it."
-              tags={["REACT", "NEXTJS", "TAILWIND"]}
+            <ProjectCard
+              title="MEDGUARD_AI"
+              description="AI-powered medication safety checker for pharmacists using RAG over real FDA drug label data to catch interactions, dosage issues, and allergy conflicts in seconds."
+              tags={["JAVASCRIPT", "RAG", "AI"]}
               color="cyan"
-              href="#"
+              href="https://github.com/AboEl-Swalem/MedGuard-AI"
             />
             {/* Project 2 */}
-            <ProjectCard 
-              title="PROJECT_TWO"
-              description="Your second project showcase. Tell visitors what makes this project special and what you learned building it."
-              tags={["JAVASCRIPT", "API", "CSS"]}
+            <ProjectCard
+              title="NOT_QUITE_MARS"
+              description="Finds Earth analogs for the Moon by matching terrain slope. Click a point on the lunar map to get the closest-matching location in Turkey's Marmara region (NASA Space Apps 2026)."
+              tags={["PYTHON", "JUPYTER", "GEOSPATIAL"]}
               color="fuchsia"
-              href="#"
+              href="https://github.com/AboEl-Swalem/Not-Quite-Mars-"
             />
             {/* Project 3 */}
-            <ProjectCard 
-              title="PROJECT_THREE"
-              description="Another project to highlight your skills. Share the impact or results of this work."
-              tags={["TYPESCRIPT", "NODE", "EXPRESS"]}
+            <ProjectCard
+              title="CS50_IMPLEMENTATIONS"
+              description="Implementations of Harvard CS50 problem sets demonstrating foundational computer science, algorithms, and problem-solving skills."
+              tags={["C", "PYTHON", "HTML"]}
               color="purple"
-              href="#"
-            />
-            {/* Project 4 */}
-            <ProjectCard 
-              title="PROJECT_FOUR"
-              description="Keep building and adding to your portfolio. Each project tells part of your developer story."
-              tags={["PYTHON", "DJANGO", "POSTGRESQL"]}
-              color="yellow"
-              href="#"
+              href="https://github.com/AboEl-Swalem/CS50-2024-Implementations"
             />
           </div>
+          
         </section>
 
         {/* Philosophy / Approach */}
@@ -126,9 +122,13 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-8 space-y-8 text-cyan-100/80 leading-relaxed font-light">
-            <p>
-              Every developer has a unique journey. Share yours here—whether you&apos;re self-taught, a bootcamp grad, or transitioning careers. <strong className="text-fuchsia-400 font-bold">Your story matters.</strong> Talk about what drives you to code and the impact you want to make.
-            </p>
+          
+             <p>
+            I&apos;m Abd Al-Rahman Salem, a software developer passionate about AI applications, geospatial problem-solving, and building practical tools that make a real-world impact.{" "}
+            <strong className="text-fuchsia-400 font-bold">Always building.</strong>{" "}
+            From healthcare RAG systems to NASA Space Apps challenges, I love turning complex ideas into clean, working software.
+          </p>
+    
             <div className="p-6 bg-cyan-950/20 border border-cyan-500/20 rounded-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-cyan-500" />
               <div className="grid grid-cols-2 gap-8 font-mono text-sm">
@@ -156,23 +156,23 @@ export default function Home() {
         {/* Contact */}
         <section id="contact" className="py-20 border-t border-cyan-900/30">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-              READY TO <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">LAUNCH?</span>
-            </h2>
-            <p className="text-cyan-200/60 text-lg">
-              Fork this template on GitHub and make it yours. Update the content, add your projects, and deploy to GitHub Pages in under 30 minutes.
-            </p>
-            <div className="flex flex-col items-center gap-6">
-              <a 
-                href="https://github.com/ladykerr/gfbs3-portfolio-demo" 
-                className="px-10 py-4 bg-fuchsia-600 text-white font-bold tracking-widest uppercase text-sm hover:bg-fuchsia-500 transition-all hover:shadow-[0_0_30px_rgba(232,121,249,0.6)] hover:scale-105 duration-300 clip-path-polygon"
-              >
-                FORK ON GITHUB
-              </a>
-              <div className="flex items-center gap-8 pt-4">
-                <SocialLink href="https://github.com" label="GITHUB" />
-                <SocialLink href="https://linkedin.com" label="LINKEDIN" />
-                <SocialLink href="https://twitter.com" label="TWITTER" />
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+          LET&apos;S <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">CONNECT</span>
+        </h2>
+        <p className="text-cyan-200/60 text-lg">
+          Interested in collaborating on AI, web development, or open-source projects? Check out my repositories or reach out.
+        </p>
+        <div className="flex flex-col items-center gap-6">
+          <a
+            href="https://github.com/AboEl-Swalem"
+            className="px-10 py-4 bg-fuchsia-600 text-white font-bold tracking-widest uppercase text-sm hover:bg-fuchsia-500 transition-all hover:shadow-[0_0_30px_rgba(232,121,249,0.6)] hover:scale-105 duration-300 clip-path-polygon"
+          >
+            VIEW MY GITHUB
+          </a>
+          <div className="flex items-center gap-8 pt-4">
+            <SocialLink href="https://github.com/AboEl-Swalem" label="GITHUB" />
+            <SocialLink href="https://www.linkedin.com/in/abd-al-rahman-salem" label="LINKEDIN" />
+          </div>
               </div>
             </div>
           </div>
