@@ -1,262 +1,256 @@
-import Image from "next/image";
-import Link from "next/link";
-
-const basePath = process.env.NODE_ENV === "production" ? "/gitfolio" : "";
-
 export default function Home() {
+  const projects = [
+    {
+      title: "MedGuard AI",
+      badge: "Healthcare • RAG",
+      description:
+        "AI-powered medication safety checker for pharmacists using RAG over real FDA drug label data to catch interactions, dosage issues, and allergy conflicts in seconds.",
+      stack: ["JavaScript", "RAG", "FDA Data", "AI"],
+      repo: "https://github.com/AboEl-Swalem/MedGuard-AI",
+      featured: true,
+    },
+    {
+      title: "Not Quite Mars",
+      badge: "NASA Space Apps 2026",
+      description:
+        "Finds Earth analogs for the Moon by matching terrain slope. Click any point on the lunar map to locate the closest-matching terrain in Turkey's Marmara region.",
+      stack: ["Python", "Jupyter", "Geospatial", "Data Analysis"],
+      repo: "https://github.com/AboEl-Swalem/Not-Quite-Mars-",
+      featured: true,
+    },
+    {
+      title: "CS50 Implementations",
+      badge: "Computer Science",
+      description:
+        "Solutions to Harvard CS50 problem sets covering memory management, data structures, algorithms, and full-stack web fundamentals.",
+      stack: ["C", "Python", "HTML", "Algorithms"],
+      repo: "https://github.com/AboEl-Swalem/CS50-2024-Implementations",
+      featured: false,
+    },
+  ];
+
+  const skills = [
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "RAG & LLMs",
+    "C",
+    "Git & GitHub",
+  ];
+
   return (
-    <div className="min-h-screen bg-[#050510] text-cyan-50 font-mono selection:bg-fuchsia-500/30 selection:text-fuchsia-200 overflow-x-hidden">
-      {/* Grid Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a2e_1px,transparent_1px),linear-gradient(to_bottom,#1a1a2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
-        <div className="absolute bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-fuchsia-900/20 to-transparent opacity-30" />
-      </div>
-
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050510]/80 backdrop-blur-md border-b border-cyan-900/30">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link 
-            href="/" 
-            className="text-lg font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 hover:to-cyan-400 transition-all duration-300"
-          >
-            ABD AL-RAHMAN
-          </Link>
-          <div className="flex gap-8 text-xs font-bold tracking-widest uppercase text-cyan-700/80">
-            <Link href="#work" className="hover:text-cyan-400 hover:drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-all">PROJECTS</Link>
-            <Link href="#philosophy" className="hover:text-fuchsia-400 hover:drop-shadow-[0_0_5px_rgba(232,121,249,0.8)] transition-all">ABOUT</Link>
-            <Link href="#contact" className="hover:text-yellow-400 hover:drop-shadow-[0_0_5px_rgba(250,204,21,0.8)] transition-all">CONTACT</Link>
-          </div>
-        </div>
-      </nav>
-
-      <main className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
-        {/* Hero Section */}
-        <section className="py-20 md:py-32 space-y-8 relative">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/20 text-cyan-400 text-xs font-bold tracking-widest uppercase animate-pulse">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,1)]" />
-             OPEN TO OPPORTUNITIES
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1] drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
-  HI, I&apos;M ABD AL-RAHMAN
-  <br />
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 animate-gradient-x">
-    SOFTWARE DEVELOPER
-  </span>
-</h1>
-</div>
-
-<p className="text-lg md:text-xl text-cyan-100/70 max-w-2xl leading-relaxed font-light border-l-2 border-fuchsia-500/50 pl-6">
-  Building web applications, solving real-world problems with code, and continuously learning new technologies.
-</p>
-          <div className="pt-8 flex gap-6">
-            <Link 
-              href="#work" 
-              className="group relative px-8 py-3 bg-cyan-950/30 border border-cyan-500/50 text-cyan-300 font-bold tracking-widest uppercase text-sm overflow-hidden hover:bg-cyan-900/50 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                GET STARTED <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
-            </Link>
-          </div>
-        </section>
-
-        {/* Selected Work */}
-        <section id="work" className="py-20 space-y-12">
-          <div className="flex items-end justify-between border-b border-cyan-900/30 pb-4">
-            <h2 className="text-2xl font-bold tracking-widest text-fuchsia-400 drop-shadow-[0_0_8px_rgba(232,121,249,0.6)]">
-              // YOUR_PROJECTS
-            </h2>
-            <span className="text-xs font-mono text-cyan-700">Showcase what you&apos;ve built with style</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Project 1 */}
-            <ProjectCard
-              title="MEDGUARD_AI"
-              description="AI-powered medication safety checker for pharmacists using RAG over real FDA drug label data to catch interactions, dosage issues, and allergy conflicts in seconds."
-              tags={["JAVASCRIPT", "RAG", "AI"]}
-              color="cyan"
-              href="https://github.com/AboEl-Swalem/MedGuard-AI"
-            />
-            {/* Project 2 */}
-            <ProjectCard
-              title="NOT_QUITE_MARS"
-              description="Finds Earth analogs for the Moon by matching terrain slope. Click a point on the lunar map to get the closest-matching location in Turkey's Marmara region (NASA Space Apps 2026)."
-              tags={["PYTHON", "JUPYTER", "GEOSPATIAL"]}
-              color="fuchsia"
-              href="https://github.com/AboEl-Swalem/Not-Quite-Mars-"
-            />
-            {/* Project 3 */}
-            <ProjectCard
-              title="CS50_IMPLEMENTATIONS"
-              description="Implementations of Harvard CS50 problem sets demonstrating foundational computer science, algorithms, and problem-solving skills."
-              tags={["C", "PYTHON", "HTML"]}
-              color="purple"
-              href="https://github.com/AboEl-Swalem/CS50-2024-Implementations"
-            />
-          </div>
-          
-        </section>
-
-        {/* Philosophy / Approach */}
-        <section id="philosophy" className="py-20 grid md:grid-cols-12 gap-12 border-t border-cyan-900/30">
-          <div className="md:col-span-4 space-y-8">
-            <h2 className="text-2xl font-bold tracking-widest text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]">
-              {"// ABOUT_ME"}
-            </h2>
-            
-            {/* Profile Image - Replace src with your image in /public */}
-            <div className="relative w-full aspect-[4/5] border border-cyan-500/30 rounded-sm overflow-hidden bg-cyan-950/30 group">
-              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(5,5,16,0.8)_100%)] z-10" />
-              {/* Scanline effect */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:100%_4px] z-20 pointer-events-none" />
-              
-              <Image 
-                src={`${basePath}/me.png`}
-                alt="Profile"
-                fill
-                className="object-cover z-0 opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
-              />
-            </div>
-          </div>
-          <div className="md:col-span-8 space-y-8 text-cyan-100/80 leading-relaxed font-light">
-          
-             <p>
-            I&apos;m Abd Al-Rahman Salem, a software developer passionate about AI applications, geospatial problem-solving, and building practical tools that make a real-world impact.{" "}
-            <strong className="text-fuchsia-400 font-bold">Always building.</strong>{" "}
-            From healthcare RAG systems to NASA Space Apps challenges, I love turning complex ideas into clean, working software.
-          </p>
-    
-            <div className="p-6 bg-cyan-950/20 border border-cyan-500/20 rounded-sm relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-cyan-500" />
-              <div className="grid grid-cols-2 gap-8 font-mono text-sm">
-                <div>
-                  <h3 className="text-cyan-400 mb-4 tracking-widest uppercase text-xs border-b border-cyan-800 pb-2">STACK_TRACE</h3>
-                  <ul className="space-y-2 text-cyan-200/70">
-                    <li className="flex items-center gap-2"><span className="text-fuchsia-500">›</span> JavaScript / Python / TypeScript</li>
-                    <li className="flex items-center gap-2"><span className="text-fuchsia-500">›</span> React / Next.js / Node.js</li>
-                    <li className="flex items-center gap-2"><span className="text-fuchsia-500">›</span> Git / GitHub / VS Code</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-cyan-400 mb-4 tracking-widest uppercase text-xs border-b border-cyan-800 pb-2">PROTOCOLS</h3>
-                  <ul className="space-y-2 text-cyan-200/70">
-                    <li className="flex items-center gap-2"><span className="text-fuchsia-500">›</span> Always learning</li>
-                    <li className="flex items-center gap-2"><span className="text-fuchsia-500">›</span> Ship &gt; Perfect</li>
-                    <li className="flex items-center gap-2"><span className="text-fuchsia-500">›</span> Open source contributor</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact */}
-        <section id="contact" className="py-20 border-t border-cyan-900/30">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-          LET&apos;S <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">CONNECT</span>
-        </h2>
-        <p className="text-cyan-200/60 text-lg">
-          Interested in collaborating on AI, web development, or open-source projects? Check out my repositories or reach out.
-        </p>
-        <div className="flex flex-col items-center gap-6">
+    <main className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-emerald-500/30 selection:text-emerald-200">
+      <div className="mx-auto max-w-5xl px-6 py-12 md:py-20">
+        {/* Top Navigation */}
+        <header className="mb-12 flex items-center justify-between">
           <a
-            href="https://github.com/AboEl-Swalem"
-            className="px-10 py-4 bg-fuchsia-600 text-white font-bold tracking-widest uppercase text-sm hover:bg-fuchsia-500 transition-all hover:shadow-[0_0_30px_rgba(232,121,249,0.6)] hover:scale-105 duration-300 clip-path-polygon"
+            href="#"
+            className="text-sm font-semibold tracking-tight text-zinc-100"
           >
-            VIEW MY GITHUB
+            Abd Al-Rahman Salem
           </a>
-          <div className="flex items-center gap-8 pt-4">
-            <SocialLink href="https://github.com/AboEl-Swalem" label="GITHUB" />
-            <SocialLink href="https://www.linkedin.com/in/abd-al-rahman-salem" label="LINKEDIN" />
+          <nav className="flex items-center gap-6 text-sm text-zinc-400">
+            <a href="#projects" className="transition hover:text-zinc-100">
+              Projects
+            </a>
+            <a href="#about" className="transition hover:text-zinc-100">
+              About
+            </a>
+            <a
+              href="https://github.com/AboEl-Swalem"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-zinc-800 bg-zinc-900 px-3.5 py-1.5 text-xs font-medium text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-800"
+            >
+              GitHub ↗
+            </a>
+          </nav>
+        </header>
+
+        {/* Hero Bento Section */}
+        <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {/* Main Intro Card */}
+          <div className="flex flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/60 p-8 md:col-span-2">
+            <div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                Open to Software & AI Opportunities
+              </div>
+              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                Hi, I&apos;m Abd Al-Rahman.
+              </h1>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+                Software developer building practical AI applications,
+                geospatial tools, and clean web software that solve real-world
+                problems.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="#projects"
+                className="rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-200"
+              >
+                Explore Projects
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abd-al-rahman-salem"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border border-zinc-800 bg-zinc-900 px-5 py-2.5 text-sm font-medium text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-800"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
+
+          {/* Right Column Status & Location Cards */}
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-1 flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/60 p-6">
+              <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Current Focus
+              </span>
+              <div className="mt-4">
+                <p className="text-lg font-semibold text-zinc-100">
+                  Applied AI & Full-Stack
+                </p>
+                <p className="mt-1 text-sm text-zinc-400">
+                  RAG pipelines, geospatial data analysis, and modern web apps.
+                </p>
               </div>
             </div>
-         
+
+            <div className="flex flex-1 flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/60 p-6">
+              <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Highlights
+              </span>
+              <div className="mt-4 space-y-2 text-sm text-zinc-300">
+                <p>🚀 NASA Space Apps 2026</p>
+                <p>💊 FDA Drug Safety RAG Engine</p>
+                <p>🎓 Harvard CS50 Alumni</p>
+              </div>
+            </div>
+          </div>
         </section>
-      </main>
 
-      <footer className="py-8 text-center text-xs font-mono text-cyan-900/50 border-t border-cyan-900/20">
-        <p>Made with ❤️ by <a href="https://gh.io/gfb" target="_blank" rel="noopener noreferrer" className="text-cyan-700 hover:text-cyan-400 hover:drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-all">GitHub for Beginners</a> and <a href="https://gh.io/gfb-copilot" target="_blank" rel="noopener noreferrer" className="text-cyan-700 hover:text-cyan-400 hover:drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-all">GitHub Copilot</a></p>
-      </footer>
-    </div>
-  );
-}
+        {/* Projects Bento Grid */}
+        <section id="projects" className="mt-14">
+          <div className="mb-6 flex items-end justify-between">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-white">
+                Selected Work
+              </h2>
+              <p className="mt-1 text-sm text-zinc-400">
+                Systems, experiments, and problem-solving builds.
+              </p>
+            </div>
+          </div>
 
-function ProjectCard({ title, description, tags, color, href }: { title: string, description: string, tags: string[], color: "cyan" | "fuchsia" | "purple" | "yellow", href: string }) {
-  // Valid color options for the card styling
-  const validColors = ["cyan", "fuchsia", "purple", "yellow"] as const;
-  
-  // Runtime validation: default to "cyan" if an invalid color is provided
-  const safeColor = validColors.includes(color) ? color : "cyan";
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {projects.map((project) => (
+              <a
+                key={project.title}
+                href={project.repo}
+                target="_blank"
+                rel="noreferrer"
+                className={`group flex flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/60 p-7 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-900 ${
+                  !project.featured ? "md:col-span-2" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="rounded-full border border-zinc-800 bg-zinc-950/70 px-3 py-1 text-xs font-medium text-zinc-400">
+                      {project.badge}
+                    </span>
+                    <span className="text-sm text-zinc-500 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white">
+                      ↗
+                    </span>
+                  </div>
 
-  const colorClasses = {
-    cyan: "group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]",
-    fuchsia: "group-hover:border-fuchsia-500/50 group-hover:shadow-[0_0_20px_rgba(232,121,249,0.2)]",
-    purple: "group-hover:border-purple-500/50 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]",
-    yellow: "group-hover:border-yellow-500/50 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]",
-  };
+                  <h3 className="mt-5 text-xl font-semibold text-white group-hover:text-emerald-400 transition">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-zinc-400">
+                    {project.description}
+                  </p>
+                </div>
 
-  const textColors = {
-    cyan: "group-hover:text-cyan-400",
-    fuchsia: "group-hover:text-fuchsia-400",
-    purple: "group-hover:text-purple-400",
-    yellow: "group-hover:text-yellow-400",
-  };
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-lg bg-zinc-800/80 px-2.5 py-1 text-xs font-medium text-zinc-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
 
-  return (
-    <Link href={href} className={`group block space-y-4 p-6 bg-[#0a0a1a] border border-cyan-900/30 transition-all duration-300 ${colorClasses[safeColor]}`}>
-      <div className="flex justify-between items-start">
-        <h3 className={`text-xl font-bold text-white tracking-wider transition-colors ${textColors[safeColor]}`}>
-          {title}
-        </h3>
-        <ArrowUpRightIcon className={`w-5 h-5 text-cyan-700 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 ${textColors[safeColor]}`} />
+        {/* About & Tech Stack Bento Row */}
+        <section id="about" className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="rounded-3xl border border-zinc-800/80 bg-zinc-900/60 p-7 md:col-span-2">
+            <h2 className="text-lg font-semibold text-white">About Me</h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
+              I&apos;m Abd Al-Rahman Salem, a software developer passionate about
+              turning complex technical ideas into clean, working software.
+              Whether I&apos;m building retrieval-augmented healthcare tools or
+              analyzing lunar elevation data for NASA Space Apps, I care about
+              clarity, speed, and real-world utility.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-zinc-800/80 bg-zinc-900/60 p-7">
+            <h2 className="text-lg font-semibold text-white">Core Stack</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-lg border border-zinc-800 bg-zinc-950/60 px-2.5 py-1 text-xs font-medium text-zinc-300"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Footer CTA */}
+        <footer className="mt-14 flex flex-col items-start justify-between gap-4 rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-7 sm:flex-row sm:items-center">
+          <div>
+            <p className="text-base font-semibold text-white">
+              Let&apos;s build something together.
+            </p>
+            <p className="text-sm text-zinc-400">
+              Reach out for internships, collaborations, or project feedback.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/AboEl-Swalem"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-xs font-medium text-zinc-200 transition hover:bg-zinc-800"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abd-al-rahman-salem"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-zinc-950 transition hover:bg-emerald-400"
+            >
+              Connect on LinkedIn
+            </a>
+          </div>
+        </footer>
       </div>
-      <p className="text-sm text-cyan-100/60 leading-relaxed font-light border-l border-cyan-900/50 pl-4">
-        {description}
-      </p>
-      <div className="flex gap-2 pt-2">
-        {tags.map(tag => (
-          <span key={tag} className="text-[10px] uppercase tracking-widest font-bold text-cyan-700 bg-cyan-950/30 px-2 py-1 border border-cyan-900/30 group-hover:border-cyan-500/30 group-hover:text-cyan-300 transition-colors">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </Link>
+    </main>
   );
-}
-
-function SocialLink({ href, label }: { href: string, label: string }) {
-  return (
-    <a 
-      href={href} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="text-xs font-bold tracking-widest text-cyan-700 hover:text-cyan-400 hover:drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-all"
-    >
-      {label}
-    </a>
-  );
-}
-
-// Simple Icons
-function ArrowRightIcon({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  )
-}
-
-function ArrowUpRightIcon({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M7 17L17 7" />
-      <path d="M7 7h10v10" />
-    </svg>
-  )
 }
